@@ -36,19 +36,18 @@ Alignment arguments:
                         Mapping quality cutoff for samtools [30]
   -ref REFERENCE, --reference REFERENCE
                         Path to reference genome
-                        [/home/joshchiou/references/ucsc.hg19.fasta]
+                        [ucsc.hg19.fasta]
   --picard_mark_dup PICARD_MARK_DUP
                         Path to picard MarkDuplicates.jar
-                        [/home/joshchiou/bin/MarkDuplicates.jar]
+                        [etc/MarkDuplicates.jar]
 
 QC arguments:
   --tss TSS             Path to TSS definitions for calculating ATAC signal
-                        enrichment around TSS [/home/joshchiou/references/hg19
-                        _gencode_tss_unique.bed]
+                        enrichment around TSS [etc/gencode_tss_unique.bed]
   --blacklist BLACKLIST
                         Path to blacklist BED file to ignore ENCODE high
                         signal regions
-                        [/home/joshchiou/references/ENCODE.hg19.blacklist.bed]
+                        [etc/ENCODE.hg19.blacklist.bed]
 
 Skip processing steps:
   --skip_trim           Skip adapter trimming step [OFF]
