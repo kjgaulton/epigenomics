@@ -2,7 +2,7 @@
 
 NOTE: several files necessary for the pipeline are in the etc/ directory.  An indexed reference genome is another necessary file but due to size not supplied here
 
-Required tools in order to run pipeline:
+Required tools in order to run pipeline:  
 BWA:  http://bio-bwa.sourceforge.net/  
 samtools:  http://www.htslib.org/  
 trim galore: https://www.bioinformatics.babraham.ac.uk/projects/trim_galore/  
