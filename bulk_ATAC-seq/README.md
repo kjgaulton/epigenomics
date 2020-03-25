@@ -54,6 +54,7 @@ Skip processing steps:
   --skip_align          Skip read alignment step [OFF]
   --skip_peaks          Skip calling peaks step [OFF]
   --skip_bdg            Skip making genome browser track [OFF]
+  --skip_rpkm           Skip making RPKM normalized signal track [OFF]
   --skip_qc             Skip ATAC qc step using ataqv [OFF]
   --skip_cleanup        Skip cleanup operations [OFF]
 
