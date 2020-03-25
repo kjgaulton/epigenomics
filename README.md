@@ -1,2 +1,2 @@
-# Pipelines for epigenomic and genetic data analysis
+## Pipelines for epigenomic and genetic data analysis
 
