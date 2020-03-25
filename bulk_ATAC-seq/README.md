@@ -6,6 +6,9 @@ Required tools in order to run pipeline:
 BWA:  http://bio-bwa.sourceforge.net/  
 samtools:  http://www.htslib.org/  
 Trim galore: https://www.bioinformatics.babraham.ac.uk/projects/trim_galore/  
+MACS:  https://github.com/taoliu/MACS  
+ataqv: https://github.com/ParkerLab/ataqv  
+deepTools:  https://deeptools.readthedocs.io/en/develop/content/installation.html  
 
 ```
 usage: bulk_ATAC-seq_pipeline.py [-h] [-p1 PAIRED1] [-p2 PAIRED2] -o OUTPUT
