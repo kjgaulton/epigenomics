@@ -5,7 +5,7 @@ NOTE: several files necessary for the pipeline are in the etc/ directory.  An in
 Required tools in order to run pipeline:  
 BWA:  http://bio-bwa.sourceforge.net/  
 samtools:  http://www.htslib.org/  
-trim galore: https://www.bioinformatics.babraham.ac.uk/projects/trim_galore/  
+Trim galore: https://www.bioinformatics.babraham.ac.uk/projects/trim_galore/  
 
 ```
 usage: bulk_ATAC-seq_pipeline.py [-h] [-p1 PAIRED1] [-p2 PAIRED2] -o OUTPUT
