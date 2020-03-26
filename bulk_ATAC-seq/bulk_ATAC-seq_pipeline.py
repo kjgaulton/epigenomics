@@ -152,7 +152,7 @@ def make_bedgraph(args):
 
 #=======================================================#
 
-def make_rpkm(args):
+def make_rpkm(args, input_bam):
 	rpkm_log = os.path.join(args.output, '.'.join([args.name, 'rpkm.log']))
 	rpkm_cmd = [
 			'bamCoverage', 
@@ -178,7 +178,7 @@ def get_qc_metrics(args, md_bam):
 			'--tss-extension', '1000',
 			'--excluded-region-file', args.blacklist,
 			'--name', args.name,
-			'--description', 'Gaulton lab ATAC sample {}'.format(args.name),
+			'--description', 'ATAC sample {}'.format(args.name),
 			'--mitochondrial-reference-name', 'chrM',
 			'--threads', str(args.threads),
 			'human', md_bam]
