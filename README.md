@@ -1,5 +1,7 @@
 ## Analytical tools and pipelines
 
+Pipelines for processing and analyzing data from epigenomic assays and integrating with genetic association data
+
 ## ATAC-seq
 Process bulk (i.e. non-single cell) ATAC-seq data.  
 ```
