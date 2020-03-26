@@ -43,10 +43,10 @@ Alignment and rmdup arguments:
                         Mapping quality cutoff for samtools [10]
   -ref REFERENCE, --reference REFERENCE
                         Path to reference genome prepared for BWA
-                        [/home/joshchiou/references/ucsc.hg19.fasta]
+                        [ucsc.hg19.fasta]
   -markdup MARKDUP, --markdup MARKDUP
                         Path to MarkDuplicates.jar
-                        [/home/joshchiou/bin/MarkDuplicates.jar]
+                        [etc/MarkDuplicates.jar]
 
 MACS2 parameters:
   --qvalue QVALUE       MACS2 callpeak qvalue cutoff [0.05]
