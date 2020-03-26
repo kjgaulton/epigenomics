@@ -10,8 +10,9 @@ Required tools that need to be installed in order to run pipeline:
 > **ataqv**: https://github.com/ParkerLab/ataqv  
 > **deepTools**:  https://deeptools.readthedocs.io/en/develop/content/installation.html  
   
+Usage:
 ```
-usage: bulk_ATAC-seq_pipeline.py [-h] [-p1 PAIRED1] [-p2 PAIRED2] -o OUTPUT
+bulk_ATAC-seq_pipeline.py [-h] [-p1 PAIRED1] [-p2 PAIRED2] -o OUTPUT
                                  [-n NAME] [-t THREADS] [-m MEMORY]
                                  [-q QUALITY] [-ref REFERENCE]
                                  [--picard_mark_dup PICARD_MARK_DUP]
