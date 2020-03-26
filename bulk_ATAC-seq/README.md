@@ -11,11 +11,11 @@ Tools that need to be installed in order to run pipeline:
 > deepTools:  https://deeptools.readthedocs.io/en/develop/content/installation.html  
 
 Primary output files from the pipeline:
-> Peak calls: output_peaks.narrowPeak
-> Filtered, sorted alignment: output.sort.filt.rmdup.bam
-> Read depth track: output_treat_pileup.bdg
-> Poisson-normalized read depth track: output.ppois.bdg
-> RPKM-normalized genome browser read depth track: output.rpkm.bw
+> Peak calls: output_peaks.narrowPeak  
+> Filtered, sorted alignment: output.sort.filt.rmdup.bam  
+> Read depth track: output_treat_pileup.bdg  
+> Poisson-normalized read depth track: output.ppois.bdg  
+> RPKM-normalized genome browser read depth track: output.rpkm.bw  
 
 Usage:
 ```
