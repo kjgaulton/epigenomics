@@ -1,11 +1,27 @@
-## Pipelines for epigenomic and genetic data analysis
+# analytical tools
+Analytical tools and pipelines developed by the Gaulton Lab at UCSD.  
 
-ATAC-seq data:  `bulk_ATAC-seq/`  
+## ATAC-seq
+Process bulk (i.e. non-single cell) ATAC-seq data.  
+```
+bulk_ATAC-seq/
+```
 
-ChIP-seq data:  `ChIP-seq/`
+## ChIP-seq
+Process TF or histone modification ChIP-seq data.
+```
+ChIP-seq/
+```
 
-CUT&RUN: `CUT_N_RUN/`
+## CUT_N_RUN
+Process TF or histone modification CUT&RUN data.
+```
+ChIP-seq/
+```
 
-PLAC-seq: `PLAC-seq`
-
+## PLAC-seq
+Process PLAC-seq/HiChiP data.
+```
+PLAC-seq/
+```
 
