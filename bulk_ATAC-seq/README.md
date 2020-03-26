@@ -9,8 +9,7 @@ Required tools that need to be installed in order to run pipeline:
 > **MACS**:  https://github.com/taoliu/MACS  
 > **ataqv**: https://github.com/ParkerLab/ataqv  
 > **deepTools**:  https://deeptools.readthedocs.io/en/develop/content/installation.html  
-
-
+  
 ```
 usage: bulk_ATAC-seq_pipeline.py [-h] [-p1 PAIRED1] [-p2 PAIRED2] -o OUTPUT
                                  [-n NAME] [-t THREADS] [-m MEMORY]
