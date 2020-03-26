@@ -1,4 +1,4 @@
-## Analytical tools and pipelines developed by the Gaulton Lab at UCSD.  
+## Analytical tools and pipelines
 
 ## ATAC-seq
 Process bulk (i.e. non-single cell) ATAC-seq data.  
