@@ -23,8 +23,9 @@ ChIP-seq_pipeline.py [-h] -t TREATMENT -c CONTROL -o OUTPUT [-n NAME]
                             [-ref REFERENCE] [-markdup MARKDUP]
                             [--qvalue QVALUE] [--broad]
                             [--broad_cutoff BROAD_CUTOFF] [--color COLOR]
-                            [--macs2_genome MACS2_GENOME] [--skip_align]
-                            [--skip_peaks] [--skip_track]
+                            [--macs2_genome MACS2_GENOME]
+                            [--genomeSize GENOMESIZE] [--skip_align]
+                            [--skip_peaks] [--skip_track] [--skip_rpkm]
 
 Pipeline for ChIP to align reads to a reference genome, and then call peaks.
 
@@ -53,8 +54,7 @@ Alignment and rmdup arguments:
                         Path to reference genome prepared for BWA
                         [ucsc.hg19.fasta]
   -markdup MARKDUP, --markdup MARKDUP
-                        Path to MarkDuplicates.jar
-                        [etc/MarkDuplicates.jar]
+                        Path to MarkDuplicates.jar [etc/MarkDuplicates.jar]
 
 MACS2 parameters:
   --qvalue QVALUE       MACS2 callpeak qvalue cutoff [0.05]
@@ -64,10 +64,15 @@ MACS2 parameters:
   --color COLOR         Color in R,G,B format to display for genome browser
                         track [0,0,0]
   --macs2_genome MACS2_GENOME
-                        MACS2 genome size (e.g. hg for hg19, mm for mm10)
+                        MACS2 genome size (e.g. hs for human, mm for mouse)
+
+Signal track parameters:
+  --genomeSize GENOMESIZE
+                        Genome size for RPKM calculation [2864785220 for hg19]
 
 Skip processing:
   --skip_align          Skip read alignment step [OFF]
   --skip_peaks          Skip calling peaks step [OFF]
   --skip_track          Skip making signal track for genome browser [OFF]
+  --skip_rpkm           Skip making rpkm normalized browser track [OFF]
   ```
