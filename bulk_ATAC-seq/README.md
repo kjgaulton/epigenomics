@@ -2,14 +2,21 @@
 
 NOTE: several files necessary for the pipeline are in the etc/ directory.  An indexed reference genome is another necessary file but due to size not supplied here
 
-Required tools that need to be installed in order to run pipeline:  
+Tools that need to be installed in order to run pipeline:  
 > BWA:  http://bio-bwa.sourceforge.net/  
 > samtools:  http://www.htslib.org/  
 > Trim galore: https://www.bioinformatics.babraham.ac.uk/projects/trim_galore/  
 > MACS:  https://github.com/taoliu/MACS  
 > ataqv: https://github.com/ParkerLab/ataqv  
 > deepTools:  https://deeptools.readthedocs.io/en/develop/content/installation.html  
-  
+
+Primary output files from the pipeline:
+> Peak calls: output_peaks.narrowPeak
+> Filtered, sorted alignment: output.sort.filt.rmdup.bam
+> Read depth track: output_treat_pileup.bdg
+> Poisson-normalized read depth track: output.ppois.bdg
+> RPKM-normalized genome browser read depth track: output.rpkm.bw
+
 Usage:
 ```
 bulk_ATAC-seq_pipeline.py [-h] [-p1 PAIRED1] [-p2 PAIRED2] -o OUTPUT
