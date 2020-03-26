@@ -56,6 +56,17 @@ QC arguments:
                         Path to blacklist BED file to ignore ENCODE high
                         signal regions
                         [etc/ENCODE.hg19.blacklist.bed]
+                        
+Bedgraph track arguments:
+  --macs2_genome MACS2_GENOME
+                        MACS2 genome (e.g. hs or mm) for peak calling
+  --bdg_color BDG_COLOR
+                        Color for genome browser signal track in R,G,B [0,0,0]
+
+Normalized signal track arguments:
+  --genomeSize GENOMESIZE
+                        Effective genome size for RPKM normalization (default:
+                        2864785220 for hg19)
 
 Skip processing steps:
   --skip_trim           Skip adapter trimming step [OFF]
