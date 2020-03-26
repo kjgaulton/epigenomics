@@ -13,10 +13,10 @@ Process TF or histone modification ChIP-seq data.
 ChIP-seq/
 ```
 
-## CUT_N_RUN
+## CUT&RUN
 Process TF or histone modification CUT&RUN data.
 ```
-ChIP-seq/
+CUT_N_RUN/
 ```
 
 ## PLAC-seq
