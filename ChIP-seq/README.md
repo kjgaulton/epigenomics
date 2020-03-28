@@ -10,11 +10,11 @@ Required tools that need to be installed in order to run pipeline:
   
 Primary output files from the pipeline:
 > Peak calls: output_peaks.narrowPeak  
-> Filtered, sorted alignment: output.sort.filt.rmdup.bam 
+> Filtered, sorted alignment: output.sort.filt.rmdup.bam  
 > Filtered, sorted control alignment: output_control.sort.filt.rmdup.bam
 > Read depth track: output_treat_pileup.bdg  
-> Control-normalized read depth track: output.ppois.bdg  
-> RPKM-normalized genome browser read depth track: output.rpkm.bw 
+> Control normalized read depth track: output.ppois.bdg  
+> RPKM-normalized read depth track for genome browser: output.rpkm.bw 
 
 Usage:
 ```
