@@ -104,14 +104,14 @@ def bdgcmp(args):
 
 #=======================================================#
 
-def make_rpkm(args, treatment_bam, control_bam):
+def make_rpkm(args, treatment_bam):
         rpkm_log = os.path.join(args.output, '.'.join([args.name, 'rpkm.log']))
         rpkm_cmd = [
                     	'bamCompare',
-                        '--b1', treatment_bam,
-			'--b2', control_bam,
+                        '-b', treatment_bam,
                         '--effectiveGenomeSize', args.genomeSize,
-			'--p', args.processes,
+			'--normalizeUsing', 'RPKM',
+			'-p', args.processes,
                         '-o' , os.path.join(args.output, args.name + '.rpkm.bw')]
         with open(rpkm_log, 'w') as f:
                 subprocess.call(rpkm_cmd, stderr=f)
@@ -150,7 +150,7 @@ def main(args):
 	if not args.skip_rpkm:
                 try:
                         logging.info('Generating normalized signal track with bamCoverage.')
-                        make_rpkm(args, args.treatment, args.control)
+                        make_rpkm(args, args.treatment)
                 except Exception as e:
                         print(repr(e), file=sys.stderr)
 	logging.info('Finishing up.')
