@@ -171,8 +171,8 @@ def process_args():
 	align_group.add_argument('-p', '--processes', required=False, type=int, default=4, help='Number of processes to use [4]')
 	align_group.add_argument('-m', '--memory', required=False, type=int, default=8, help='Maximum memory per thread [8]')
 	align_group.add_argument('-q', '--quality', required=False, type=int, default=10, help='Mapping quality cutoff for samtools [10]')
-	align_group.add_argument('-ref', '--reference', required=False, type=str, default='ucsc.hg19.fasta',  help='Path to reference genome prepared for BWA [ucsc.hg19.fasta]')
-	align_group.add_argument('-markdup', '--markdup', required=False, type=str, default='etc/MarkDuplicates.jar', help='Path to MarkDuplicates.jar [etc/MarkDuplicates.jar]')
+	align_group.add_argument('-r', '--reference', required=True, type=str, default='ucsc.hg19.fasta',  help='Path to reference genome prepared for BWA [ucsc.hg19.fasta]')
+	align_group.add_argument('-d', '--markdup', required=True, type=str, default='etc/MarkDuplicates.jar', help='Path to MarkDuplicates.jar [etc/MarkDuplicates.jar]')
 	
 	macs2_group = parser.add_argument_group('MACS2 parameters')
 	macs2_group.add_argument('--qvalue', required=False, type=float, default=0.05, help='MACS2 callpeak qvalue cutoff [0.05]')
