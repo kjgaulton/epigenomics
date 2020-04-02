@@ -4,22 +4,22 @@ Run these commands create the initial site and database, which then can later be
 
 Important:  You should fork your own repository with the code base, as setting up your own site will require systematic changes (such as your S3 bucket names, other customized aspects of your site such as the homepage etc.).  Your repository is also cloned into the AWS instance as part of installation and therefore needs to have these changes reflected in the repository in GitHub directly for proper deployment.  
 
-DGA repo:
+DGA repo:  
 `git clone https://github.com/T2DREAM/t2dream-portal.git`
 
 Deploy test server to local machine:
 Follow instructions in README.rst
 
-Deploy to AWS instance:
-Pick a name for the instance, e.g.:  x1
+Deploy to AWS instance:  
+Pick a name for the instance, e.g.:  x1  
 (Make sure your AWS credentials are in order on your local machine to ensure you can log in to instances once deployed)
 
-Create buckets on S3 via the AWS console which are uniquely named for your site – for DGA the buckets all start with the tag ‘t2depi’.  For example, if you used the tag ‘mysite’, the buckets you need to create would be:mysite, mysite-blobs, mysite-blobs-dev, mysite-conf-prod, mysite-files, mysite-files-dev, mysite-backups
+Create buckets on S3 via the AWS console which are uniquely named for your site – for DGA the buckets all start with the tag ‘t2depi’.  For example, if you used the tag ‘mysite’, the buckets you need to create would be:mysite, mysite-blobs, mysite-blobs-dev, mysite-conf-prod, mysite-files, mysite-files-dev, mysite-backups  
 (Make sure to modify the entire code base to point to the buckets created for your site and not t2depi or encode buckets)
 
 In AWS console, create the following IAMs: encoded-files-upload, encoded-instance, production
 
-For production:
+For production:  
 `./bin/deploy --name x1 --test --instance-type m4.xlarge --profile-name production`
 Can change instance type based on the size of production site needed
 
@@ -28,19 +28,19 @@ Go to your AWS console, look at EC2 running instances
 Select the public DNS for the instance just deployed, 
 e.g.: ec2-xx-xxx-xxx-xxx.us-west-2.compute.amazonaws.com (each time will be different DNS)
 
-Login to instance to check status of installation:
+Login to instance to check status of installation:  
 `ssh ubuntu@ec2-34-210-240-153.us-west-2.compute.amazonaws.com`
 
-View progress:
-tail -f /var/log/cloud-init-output.log
+View progress:  
+`tail -f /var/log/cloud-init-output.log`
 
 Server should automatically reboot after installation is complete
 
 Visit the URL http://ec2-xx-xxx-xxx-xxx.us-west-2.compute.amazonaws.com - should return the homepage, although without the initial splash page
 
-To load ‘test’ data (in my experience was needed for the site to start working properly and to ‘prime’ the database to enable adding real data – but may not be necessary for others), login to instance:
-cd /srv/encoded/
-sudo -u encoded /bin/dev-servers production.ini --app-name app --load --init
+To load ‘test’ data (in my experience was needed for the site to start working properly and to ‘prime’ the database to enable adding real data – but may not be necessary for others), login to instance:  
+`cd /srv/encoded/
+sudo -u encoded /bin/dev-servers production.ini --app-name app --load --init`  
 [might require some editing of dev-servers to work properly]
 
 Set up postgres backup (WAL):
