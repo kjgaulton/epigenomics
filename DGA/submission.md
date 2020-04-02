@@ -1,6 +1,6 @@
 ## DGA Submission, v3
 
-1.  Adding experimental data
+1.  **Adding experimental data**
 
 Experiments are molecular assays run by a research group - for example ATAC-seq, RNA-seq, ChIP-seq, and Hi-C.  
 
