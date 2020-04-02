@@ -20,7 +20,7 @@ Create buckets on S3 via the AWS console which are uniquely named for your site 
 In AWS console, create the following IAMs: encoded-files-upload, encoded-instance, production
 
 **For production:**  
-`./bin/deploy --name x1 --test --instance-type m4.xlarge --profile-name production`
+`./bin/deploy --name x1 --test --instance-type m4.xlarge --profile-name production`  
 Can change instance type based on the size of production site needed
 
 Go to your AWS console, look at EC2 running instances
