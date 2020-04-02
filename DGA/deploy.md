@@ -39,8 +39,8 @@ Server should automatically reboot after installation is complete
 Visit the URL http://ec2-xx-xxx-xxx-xxx.us-west-2.compute.amazonaws.com - should return the homepage, although without the initial splash page
 
 To load ‘test’ data (in my experience was needed for the site to start working properly and to ‘prime’ the database to enable adding real data – but may not be necessary for others), login to instance:  
-`cd /srv/encoded/
-sudo -u encoded /bin/dev-servers production.ini --app-name app --load --init`  
+```cd /srv/encoded/
+sudo -u encoded /bin/dev-servers production.ini --app-name app --load --init```  
 [might require some editing of dev-servers to work properly]
 
 **Set up postgres backup (WAL):**  
@@ -51,12 +51,12 @@ add to postgres.conf:
 Restart postgres
 
 **Create base backup:**  
-`sudo -i -u postgres /opt/wal-e/bin/envfile --config /home/ubuntu/.aws/credentials --section default --upper -- /opt/wal-e/bin/wal-e --s3-prefix="$(cat /etc/postgresql/9.3/main/wale_s3_prefix)" backup-push /var/lib/postgresql/9.3/main`
+```sudo -i -u postgres /opt/wal-e/bin/envfile --config /home/ubuntu/.aws/credentials --section default --upper -- /opt/wal-e/bin/wal-e --s3-prefix="$(cat /etc/postgresql/9.3/main/wale_s3_prefix)" backup-push /var/lib/postgresql/9.3/main```
 
 **Cron for scheduled backups (1 AM PST):**  
-`sudo crontab -e
+```sudo crontab -e
 
-00 7 * * * sudo -i -u postgres /opt/wal-e/bin/envfile --config ~postgres/.aws/credentials --section default --upper -- /opt/wal-e/bin/wal-e --s3-prefix="$(cat /etc/postgresql/9.3/main/wale_s3_prefix)" backup-push /var/lib/postgresql/9.3/main`  
+00 7 * * * sudo -i -u postgres /opt/wal-e/bin/envfile --config ~postgres/.aws/credentials --section default --upper -- /opt/wal-e/bin/wal-e --s3-prefix="$(cat /etc/postgresql/9.3/main/wale_s3_prefix)" backup-push /var/lib/postgresql/9.3/main```
 
 Create an admin user account by creating a user for yourself based on the ‘user.json’ schema (see example provided at end of document), and load it into the database.  Make sure you are in group ‘admin’ so that you have administrator privileges.  You can post JSON to the database using the script ‘loadxl.py’.  Using this account will allow you to then authenticate with your email address once Auth0 is setup and log in to the site and start adding additional information from the web.  
 
