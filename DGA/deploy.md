@@ -1,4 +1,4 @@
-##1.	Initial set-up and deploy in single server mode
+## Initial set-up and deploy in single server mode
 
 Run these commands create the initial site and database, which then can later be deployed as a cluster for a full production site if desired in the next section.  
 
