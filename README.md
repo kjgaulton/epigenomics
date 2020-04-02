@@ -7,7 +7,7 @@ Process bulk (i.e. non-single cell) ATAC-seq data.
 ```
 bulk_ATAC-seq/
 ```
-ENCODE ATAC-seq pipe;line:  https://github.com/ENCODE-DCC/atac-seq-pipeline
+ENCODE ATAC-seq pipeline:  https://github.com/ENCODE-DCC/atac-seq-pipeline
 
 ## ChIP-seq
 Process TF or histone modification ChIP-seq data.
