@@ -159,6 +159,7 @@ def make_rpkm(args, input_bam):
 			'--bam', input_bam,
 			'--effectiveGenomeSize', args.genomeSize, 
 			'--normalizeUsing', 'RPKM', 
+			'-p', args.processes,
 			'-o' , os.path.join(args.output, args.name + '.rpkm.bw')]
 	with open(rpkm_log, 'w') as f:
                 subprocess.call(rpkm_cmd, stderr=f)
