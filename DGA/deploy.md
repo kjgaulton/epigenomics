@@ -45,9 +45,8 @@ sudo -u encoded /bin/dev-servers production.ini --app-name app --load --init`
 
 Set up postgres backup (WAL):
 
-add to postgres.conf:
-archive_command = '/opt/wal-e/bin/envfile --config /home/ubuntu/.aws/credentials --section default --upper -- /opt/wal-e/bin/wal-e 
---s3-prefix="$(cat /etc/postgresql/9.3/main/wale_s3_prefix)" wal-push "%p"'
+add to postgres.conf:  
+`archive_command = '/opt/wal-e/bin/envfile --config /home/ubuntu/.aws/credentials --section default --upper -- /opt/wal-e/bin/wal-e --s3-prefix="$(cat /etc/postgresql/9.3/main/wale_s3_prefix)" wal-push "%p"'`
 
 Restart postgres
 
