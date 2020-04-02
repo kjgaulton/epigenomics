@@ -4,4 +4,4 @@ Documentation for deploying and submitting to web resource and database for epig
 
 Instructions for deploying site:  ```deploy.md```
 
-Instructions for submitting data to site: ```submit.md```
+Instructions for submitting data to site: ```submission.md```
