@@ -80,36 +80,44 @@ This will launch the elastic search and indexing in cluster mode which is necess
 
 Once the initial site and database is created, that instance can be spun down and the site can be deployed in cluster mode and the database can then be re-loaded into the new site from the backup.  Similarly, when changes are made to the code and a new production server needs to be deployed to reflect these changes, a new cluster can be spun up and the database can be re-loaded into the site from the backup.   
 
-**Deploy AWS instances:**
+**Deploy AWS instances:**  
 Checkout the code on local machine
 git clone https://github.com/T2DREAM/t2dream-portal.git
 
-**For production:**
+**For production:**  
 Navigate to t2dream-portal directory and launch master node  
 `bin/deploy --cluster-name vX-cluster --profile-name production --candidate --n vX-master --instance-type c5.9xlarge`
 
-**Launch cluster nodes**  
+**Launch cluster nodes**   
 `bin/deploy --elasticsearch yes --cluster-name vX-cluster --cluster-size 3 --profile-name production --name vX-cluster --instance-type c5.xlarge`
 
 Note: X is the instance version
 Ensure the --cluster-name for launching cluster nodes and master node is same
+
 Go to AWS console, check that the cluster nodes and master nodes are running
-Important: Open security groups elasticsearch-https (for elasticsearch cluster mode), ssh-http-https for master and all the cluster nodes individually via. AWS console.
+Important: Open security groups elasticsearch-https (for elasticsearch cluster mode), ssh-http-https for master and all the cluster nodes individually via AWS console.
+
 Select public DNS for the master node just deployed, e.g.: ec2-xx-xxx-xxx-xxx.us-west-2.compute.amazonaws.com (each time will be different DNS)
-Login to master instance to check status of installation: ssh ubuntu@ec2-xx-xxx-xxx-xxx.us-west-2.compute.amazonaws.com
+
+Login to master instance to check status of installation:  
+`ssh ubuntu@ec2-xx-xxx-xxx-xxx.us-west-2.compute.amazonaws.com`
 
 **View progress:**
 `tail -f /var/log/cloud-init-output.log`
 
 Usually runs without any errors, errors typically encountered only when modules/dependencies are deprecated
-The master server should automatically reboot after installation is complete.  Visiting the URL of the master node http://ec2-xx-xxx-xxx-xxx.us-west-2.compute.amazonaws.com should return the homepage of the site
+The master server should automatically reboot after installation is complete.  
+
+Visiting the URL of the master node http://ec2-xx-xxx-xxx-xxx.us-west-2.compute.amazonaws.com should return the homepage of the site
+
 Login to master node instance to add elasticsearch replicas: ssh ubuntu@ec2-xx-xxx-xxx-xxx.us-west-2.compute.amazonaws.com
 (https://www.elastic.co/guide/en/elasticsearch/guide/current/distributed-cluster.html)
-Add Replicas
-curl -XPUT 'localhost:9200/_all/_settings' -d '{"index": {"number_of_replicas": 2}}'
 
-View cluster health on master
-curl localhost:9200/_cluster/health?pretty
+**Add Replicas**
+`curl -XPUT 'localhost:9200/_all/_settings' -d '{"index": {"number_of_replicas": 2}}'`
+
+**View cluster health on master**
+`curl localhost:9200/_cluster/health?pretty
 {
   "cluster_name" : "v6-cluster",
   "status" : "green",
@@ -124,26 +132,29 @@ curl localhost:9200/_cluster/health?pretty
   "delayed_unassigned_shards" : 0,
   "number_of_pending_tasks" : 0,
   "number_of_in_flight_fetch" : 0
-}
+}`
 
-Retrieve the latest WAL backup of postgres (during installation process) - required for production:
-Stop PostgreSQL server and remove data directory
-sudo service postgresql stop
-sudo rm -rf /var/lib/postgresql/9.3/main
+**Retrieve the latest WAL backup of postgres (during installation process) - required for production:**
+Stop PostgreSQL server and remove data directory  
+`sudo service postgresql stop  
+sudo rm -rf /var/lib/postgresql/9.3/main`
 
-Fetch latest WAL-E backup
-sudo -i -u postgres /opt/wal-e/bin/envfile --config /home/ubuntu/.aws/credentials --section default --upper -- /opt/wal-e/bin/wal-e --s3-prefix="$(cat /etc/postgresql/9.3/main/wale_s3_prefix)" backup-fetch /var/lib/postgresql/9.3/main LATEST
+**Fetch latest WAL-E backup**   
+`sudo -i -u postgres /opt/wal-e/bin/envfile --config /home/ubuntu/.aws/credentials --section default --upper -- /opt/wal-e/bin/wal-e --s3-prefix="$(cat /etc/postgresql/9.3/main/wale_s3_prefix)" backup-fetch /var/lib/postgresql/9.3/main LATEST`
 
-Change postgres recovery.conf to include command that runs during recovering
-sudo -u postgres vim /var/lib/postgresql/9.3/main/recovery.conf
-Add to recovery.conf
-restore_command = '/opt/wal-e/bin/wal-e --aws-instance-profile --s3-prefix="$(cat /etc/postgresql/9.3/main/wale_s3_prefix)" wal-fetch "%f" "%p"'
+**Change postgres recovery.conf to include command that runs during recovering**
+`sudo -u postgres vim /var/lib/postgresql/9.3/main/recovery.conf`  
+Add to recovery.conf:  
+`restore_command = '/opt/wal-e/bin/wal-e --aws-instance-profile --s3-prefix="$(cat /etc/postgresql/9.3/main/wale_s3_prefix)" wal-fetch "%f" "%p"'`
 
-Start PostgreSQL and Reboot the server (master and cluster nodes) via. aws console!
-sudo service postgresql start
+**Start PostgreSQL and Reboot the server (master and cluster nodes) via. aws console!**
+`sudo service postgresql start`
 Once WAL backups are retrieved indexing to ES datastore initiates
 
-Additional info
+
+
+## Additional info
+
 Example ‘user.json’:
 {
     "email": "kgaulton@gmail.com",
