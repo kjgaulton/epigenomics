@@ -1,11 +1,11 @@
-1.	Initial set-up and deploy in single server mode
+##1.	Initial set-up and deploy in single server mode
 
 Run these commands create the initial site and database, which then can later be deployed as a cluster for a full production site if desired in the next section.  
 
 Important:  You should fork your own repository with the code base, as setting up your own site will require systematic changes (such as your S3 bucket names, other customized aspects of your site such as the homepage etc.).  Your repository is also cloned into the AWS instance as part of installation and therefore needs to have these changes reflected in the repository in GitHub directly for proper deployment.  
 
 DGA repo:
-git clone https://github.com/T2DREAM/t2dream-portal.git
+`git clone https://github.com/T2DREAM/t2dream-portal.git`
 
 Deploy test server to local machine:
 Follow instructions in README.rst
@@ -20,7 +20,7 @@ Create buckets on S3 via the AWS console which are uniquely named for your site 
 In AWS console, create the following IAMs: encoded-files-upload, encoded-instance, production
 
 For production:
-./bin/deploy --name x1 --test --instance-type m4.xlarge --profile-name production
+`./bin/deploy --name x1 --test --instance-type m4.xlarge --profile-name production`
 Can change instance type based on the size of production site needed
 
 Go to your AWS console, look at EC2 running instances
@@ -29,7 +29,7 @@ Select the public DNS for the instance just deployed,
 e.g.: ec2-xx-xxx-xxx-xxx.us-west-2.compute.amazonaws.com (each time will be different DNS)
 
 Login to instance to check status of installation:
-ssh ubuntu@ec2-34-210-240-153.us-west-2.compute.amazonaws.com
+`ssh ubuntu@ec2-34-210-240-153.us-west-2.compute.amazonaws.com`
 
 View progress:
 tail -f /var/log/cloud-init-output.log
