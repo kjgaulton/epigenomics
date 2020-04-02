@@ -285,7 +285,7 @@ def process_args():
 	align_group.add_argument('-t', '--threads', required=False, type=int, default=4, help='Number of threads to use [4]')
 	align_group.add_argument('-m', '--memory', required=False, type=int, default=8, help='Maximum memory (in Gb) per thread for samtools sort [8]')
 	align_group.add_argument('-q', '--quality', required=False, type=int, default=30, help='Mapping quality cutoff for samtools [30]')
-	align_group.add_argument('-ref', '--reference', required=False, type=str, default='ref/male.hg19.fa', help='Path to reference genome [./ref/male.hg19.fa]')
+	align_group.add_argument('-ref', '--reference', required=True, type=str, default='ref/male.hg19.fa', help='Path to reference genome [./ref/male.hg19.fa]')
 	align_group.add_argument('--picard_mark_dup', required=False, type=str, default='etc/MarkDuplicates.jar', help='Path to picard MarkDuplicates.jar [./etc/MarkDuplicates.jar]')
 	
 	qc_group = parser.add_argument_group('QC arguments')
