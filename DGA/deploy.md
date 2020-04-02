@@ -39,24 +39,32 @@ Server should automatically reboot after installation is complete
 Visit the URL http://ec2-xx-xxx-xxx-xxx.us-west-2.compute.amazonaws.com - should return the homepage, although without the initial splash page
 
 To load ‘test’ data (in my experience was needed for the site to start working properly and to ‘prime’ the database to enable adding real data – but may not be necessary for others), login to instance:  
-```cd /srv/encoded/
-sudo -u encoded /bin/dev-servers production.ini --app-name app --load --init```  
+```
+cd /srv/encoded/
+sudo -u encoded /bin/dev-servers production.ini --app-name app --load --init
+```  
 [might require some editing of dev-servers to work properly]
 
 **Set up postgres backup (WAL):**  
 
 add to postgres.conf:  
-`archive_command = '/opt/wal-e/bin/envfile --config /home/ubuntu/.aws/credentials --section default --upper -- /opt/wal-e/bin/wal-e --s3-prefix="$(cat /etc/postgresql/9.3/main/wale_s3_prefix)" wal-push "%p"'`
+```
+archive_command = '/opt/wal-e/bin/envfile --config /home/ubuntu/.aws/credentials --section default --upper -- /opt/wal-e/bin/wal-e --s3-prefix="$(cat /etc/postgresql/9.3/main/wale_s3_prefix)" wal-push "%p"'
+```
 
 Restart postgres
 
 **Create base backup:**  
-```sudo -i -u postgres /opt/wal-e/bin/envfile --config /home/ubuntu/.aws/credentials --section default --upper -- /opt/wal-e/bin/wal-e --s3-prefix="$(cat /etc/postgresql/9.3/main/wale_s3_prefix)" backup-push /var/lib/postgresql/9.3/main```
+```
+sudo -i -u postgres /opt/wal-e/bin/envfile --config /home/ubuntu/.aws/credentials --section default --upper -- /opt/wal-e/bin/wal-e --s3-prefix="$(cat /etc/postgresql/9.3/main/wale_s3_prefix)" backup-push /var/lib/postgresql/9.3/main
+```
 
 **Cron for scheduled backups (1 AM PST):**  
-```sudo crontab -e
+```
+sudo crontab -e
 
-00 7 * * * sudo -i -u postgres /opt/wal-e/bin/envfile --config ~postgres/.aws/credentials --section default --upper -- /opt/wal-e/bin/wal-e --s3-prefix="$(cat /etc/postgresql/9.3/main/wale_s3_prefix)" backup-push /var/lib/postgresql/9.3/main```
+00 7 * * * sudo -i -u postgres /opt/wal-e/bin/envfile --config ~postgres/.aws/credentials --section default --upper -- /opt/wal-e/bin/wal-e --s3-prefix="$(cat /etc/postgresql/9.3/main/wale_s3_prefix)" backup-push /var/lib/postgresql/9.3/main
+```
 
 Create an admin user account by creating a user for yourself based on the ‘user.json’ schema (see example provided at end of document), and load it into the database.  Make sure you are in group ‘admin’ so that you have administrator privileges.  You can post JSON to the database using the script ‘loadxl.py’.  Using this account will allow you to then authenticate with your email address once Auth0 is setup and log in to the site and start adding additional information from the web.  
 
@@ -69,9 +77,12 @@ https://certbot.eff.org/#ubuntutrusty-apache
 (Requires reboot after installation, renewal every ~90 days)
 
 **Authentication:**  
-Create account and login to https://auth0.com/ for authentication and login for authenticated users 
+Create account and login to https://auth0.com/ for authentication and login for authenticated users
+
 Create auth0 application (react, application type: single page).  Add your site URL(s) to allowed callback urls, allowed web origins and CORS 
+
 Enable AWS add on.  Configure and enable connections for Gmail, Facebook, Twitter etc. so that user can login using these accounts https://auth0.com/docs/dashboard/guides/connections/set-up-connections-social
+
 Check if you can login to your admin user account authenticated using social media via the web site.
 
 ## Deploy in cluster mode  
@@ -86,10 +97,14 @@ git clone https://github.com/T2DREAM/t2dream-portal.git
 
 **For production:**  
 Navigate to t2dream-portal directory and launch master node  
-`bin/deploy --cluster-name vX-cluster --profile-name production --candidate --n vX-master --instance-type c5.9xlarge`
+```
+bin/deploy --cluster-name vX-cluster --profile-name production --candidate --n vX-master --instance-type c5.9xlarge
+```
 
 **Launch cluster nodes**   
-`bin/deploy --elasticsearch yes --cluster-name vX-cluster --cluster-size 3 --profile-name production --name vX-cluster --instance-type c5.xlarge`
+```
+bin/deploy --elasticsearch yes --cluster-name vX-cluster --cluster-size 3 --profile-name production --name vX-cluster --instance-type c5.xlarge
+```
 
 Note: X is the instance version
 Ensure the --cluster-name for launching cluster nodes and master node is same
@@ -99,7 +114,7 @@ Important: Open security groups elasticsearch-https (for elasticsearch cluster m
 
 Select public DNS for the master node just deployed, e.g.: ec2-xx-xxx-xxx-xxx.us-west-2.compute.amazonaws.com (each time will be different DNS)
 
-Login to master instance to check status of installation:  
+***Login to master instance to check status of installation:**   
 `ssh ubuntu@ec2-xx-xxx-xxx-xxx.us-west-2.compute.amazonaws.com`
 
 **View progress:**
@@ -117,7 +132,8 @@ Login to master node instance to add elasticsearch replicas: ssh ubuntu@ec2-xx-x
 `curl -XPUT 'localhost:9200/_all/_settings' -d '{"index": {"number_of_replicas": 2}}'`
 
 **View cluster health on master**
-`curl localhost:9200/_cluster/health?pretty
+```
+curl localhost:9200/_cluster/health?pretty
 {
   "cluster_name" : "v6-cluster",
   "status" : "green",
@@ -132,23 +148,32 @@ Login to master node instance to add elasticsearch replicas: ssh ubuntu@ec2-xx-x
   "delayed_unassigned_shards" : 0,
   "number_of_pending_tasks" : 0,
   "number_of_in_flight_fetch" : 0
-}`
+}
+```
 
 **Retrieve the latest WAL backup of postgres (during installation process) - required for production:**
 Stop PostgreSQL server and remove data directory  
-`sudo service postgresql stop  
-sudo rm -rf /var/lib/postgresql/9.3/main`
+```
+sudo service postgresql stop  
+sudo rm -rf /var/lib/postgresql/9.3/main
+```
 
 **Fetch latest WAL-E backup**   
-`sudo -i -u postgres /opt/wal-e/bin/envfile --config /home/ubuntu/.aws/credentials --section default --upper -- /opt/wal-e/bin/wal-e --s3-prefix="$(cat /etc/postgresql/9.3/main/wale_s3_prefix)" backup-fetch /var/lib/postgresql/9.3/main LATEST`
+```
+sudo -i -u postgres /opt/wal-e/bin/envfile --config /home/ubuntu/.aws/credentials --section default --upper -- /opt/wal-e/bin/wal-e --s3-prefix="$(cat /etc/postgresql/9.3/main/wale_s3_prefix)" backup-fetch /var/lib/postgresql/9.3/main LATEST
+```
 
 **Change postgres recovery.conf to include command that runs during recovering**
-`sudo -u postgres vim /var/lib/postgresql/9.3/main/recovery.conf`  
+`sudo -u postgres vim /var/lib/postgresql/9.3/main/recovery.conf` 
+
 Add to recovery.conf:  
-`restore_command = '/opt/wal-e/bin/wal-e --aws-instance-profile --s3-prefix="$(cat /etc/postgresql/9.3/main/wale_s3_prefix)" wal-fetch "%f" "%p"'`
+```
+restore_command = '/opt/wal-e/bin/wal-e --aws-instance-profile --s3-prefix="$(cat /etc/postgresql/9.3/main/wale_s3_prefix)" wal-fetch "%f" "%p"'
+```
 
 **Start PostgreSQL and Reboot the server (master and cluster nodes) via. aws console!**
 `sudo service postgresql start`
+
 Once WAL backups are retrieved indexing to ES datastore initiates
 
 
@@ -156,6 +181,7 @@ Once WAL backups are retrieved indexing to ES datastore initiates
 ## Additional info
 
 Example ‘user.json’:
+```
 {
     "email": "kgaulton@gmail.com",
     "first_name": "Kyle",
@@ -169,6 +195,6 @@ Example ‘user.json’:
     "submits_for": [],
     "timezone": "US/Pacific"
 }
- 
+``` 
 
 
