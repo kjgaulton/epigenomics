@@ -25,13 +25,13 @@ ENCODE RNA-seq pipeline: https://github.com/ENCODE-DCC/rna-seq-pipeline
 
 ## CUT&RUN
 Process TF or histone modification CUT&RUN data.
-```
-CUT_N_RUN/
-```
 
 ## PLAC-seq
 Process PLAC-seq/HiChiP data.
-```
-PLAC-seq/
-```
+
+## Single nuclear ATAC-seq
+Process single nuclear ATAC-seq (snATAC-seq data)
+
+## Single cell RNA-seq
+Process single cell/nuclear RNA-seq (sc/snRNA-seq)
 
