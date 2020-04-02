@@ -92,8 +92,10 @@ This will launch the elastic search and indexing in cluster mode which is necess
 Once the initial site and database is created, that instance can be spun down and the site can be deployed in cluster mode and the database can then be re-loaded into the new site from the backup.  Similarly, when changes are made to the code and a new production server needs to be deployed to reflect these changes, a new cluster can be spun up and the database can be re-loaded into the site from the backup.   
 
 **Deploy AWS instances:**  
-Checkout the code on local machine
+Checkout the code on local machine  
+```
 git clone https://github.com/T2DREAM/t2dream-portal.git
+```
 
 **For production:**  
 Navigate to t2dream-portal directory and launch master node  
@@ -115,10 +117,14 @@ Important: Open security groups elasticsearch-https (for elasticsearch cluster m
 Select public DNS for the master node just deployed, e.g.: ec2-xx-xxx-xxx-xxx.us-west-2.compute.amazonaws.com (each time will be different DNS)
 
 ***Login to master instance to check status of installation:**   
-`ssh ubuntu@ec2-xx-xxx-xxx-xxx.us-west-2.compute.amazonaws.com`
+```
+ssh ubuntu@ec2-xx-xxx-xxx-xxx.us-west-2.compute.amazonaws.com
+```
 
 **View progress:**
-`tail -f /var/log/cloud-init-output.log`
+```
+tail -f /var/log/cloud-init-output.log
+```
 
 Usually runs without any errors, errors typically encountered only when modules/dependencies are deprecated
 The master server should automatically reboot after installation is complete.  
@@ -128,8 +134,10 @@ Visiting the URL of the master node http://ec2-xx-xxx-xxx-xxx.us-west-2.compute.
 Login to master node instance to add elasticsearch replicas: ssh ubuntu@ec2-xx-xxx-xxx-xxx.us-west-2.compute.amazonaws.com
 (https://www.elastic.co/guide/en/elasticsearch/guide/current/distributed-cluster.html)
 
-**Add Replicas**
-`curl -XPUT 'localhost:9200/_all/_settings' -d '{"index": {"number_of_replicas": 2}}'`
+**Add Replicas**  
+```
+curl -XPUT 'localhost:9200/_all/_settings' -d '{"index": {"number_of_replicas": 2}}'
+```
 
 **View cluster health on master**
 ```
