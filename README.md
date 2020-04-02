@@ -13,6 +13,8 @@ Process TF or histone modification ChIP-seq data.
 ```
 ChIP-seq/
 ```
+ENCODE ChIP-seq pipeline:  https://github.com/ENCODE-DCC/chip-seq-pipeline2
+
 
 ## CUT&RUN
 Process TF or histone modification CUT&RUN data.
