@@ -4,7 +4,7 @@
 
 Experiments are molecular assays run by a research group - for example ATAC-seq, RNA-seq, ChIP-seq, and Hi-C.  
 
-1.1.	  Overview of necessary steps:
+1.1.	  **Overview of necessary steps:**
 
 1)	Create ‘donor’ entry for all samples included in the experiment.  
 2)	Create ‘biosample’ (e.g. tissue, cell type) entry for each tissue sample obtained from each ‘donor’ used in the experiment
@@ -20,11 +20,11 @@ If submitting lab doesn’t exist in database, then need to create ‘lab’ and
 If submitting user does not have access key and secret, please email DGA team to obtain them.  Admins can create access keys by signing in and viewing page for specific user via the web site
 
 
-1.2.	  Adding experimental meta-data into the site
+1.2.	  **Adding experimental meta-data into the site**
 
 There are two primary ways to add meta-data:
 
-1.2.1.	Visit web site and add in meta-data via web forms directly
+1.2.1.	**Visit web site and add in meta-data via web forms directly**
 
 Easiest when submitting small amount of data, <10-20 experiments.  Click ‘add’ at the top of the pages listed below and fill in all information on web form.  Required fields are marked with ‘*’, and for some fields the set of possible values are restricted to biomedical ontology terms
 
@@ -42,7 +42,7 @@ Create experiment: http://www.diabetesepigenome.org/experiments/
 
 Once the experiment is created, add library accession numbers to the experiment by selecting ‘edit’ from the top right and adding ‘replicates’ – depending on the experiment there could be technical or biological replicates or both.  If only one library for the experiment the technical and biological replicate numbers would both be numbered 1.   
 
-1.2.2.	Complete spreadsheet and post meta-data using macros
+1.2.2.	**Complete spreadsheet and post meta-data using macros**
 
 Easiest when submitting data in larger batches, >20 experiments
 
@@ -67,30 +67,34 @@ Column B needs to be left blank when doing submission.  If information has been 
 The experiment accession number can be obtained from “T2DREAM->ALL/Selected->Get from T2DREAM”.  
 
 
-1.3.	  Submit data files associated with experiment
+1.3.	 **Submit data files associated with experiment**
 
 There are two primary ways to submit data files to an experiment:
 
-1.3.1.	Running a command line script
+1.3.1.	**Running a command line script**
 
 The script ‘submit_file.py’ in GitHub allows you to post data files to an experiment.  The inputs to the script need to be manually changed to include your access keys, the file path you are submitting, lab, award, the experiment accession and replicate the file belongs to, and meta-data about the file itself including file type and other information (e.g. read length if .fastq).
 
+```
 python3 submit_file.py  
+```
 
 ** We are actively working on improving this script to help make file submission much easier without needing to manually update the script contents each time **
 
-1.3.2.	 Completing spreadsheet and submitting via command line script
+1.3.2.	 **Completing spreadsheet and submitting via command line script**
 
 The data submission spreadsheet contains a FILE form which one can fill out with file info, including the ‘alias’ for the experiment in the ‘dataset’ column and - if associated with a specific library – for the replicate in the ‘replicate’ column.  (Note that the column ‘fastq_file’ for the file name can be any file type submitted to the site - fastq, bed, bigwig, etc.) 
 
 Once the FILE form is completed then copy the contents of the sheet into a text file and run the script ‘gz2T2D.pl’:
 
+```
 perl gz2T2D.pl my_submission_spreadsheet.txt  
+```
 
 ** In order for the gz2T2D.pl script to run correctly you may need to install module JSON::Parse **
 
 
-1.4.	 Audit and release experiment
+1.4.	 ***Audit and release experiment***
 
 For data being submitted to DGA, the DGA team will audit and then release files.  
 
@@ -109,11 +113,11 @@ Where ‘keypairs.json’ contains your access keys and ‘assays_to_release.txt
 More detail about data release can be found here:  https://github.com/T2DREAM/t2dream-portal/blob/master/t2dream_docs/release-data.md
 
 
-2.	Adding annotation data 
+2.	**Adding annotation data**
 
 Annotations are analytical distillations of experiments, and can include files such as chromatin states, accessible chromatin sites, target gene predictions, QTLs, and other summary-level data 
 
-2.1.	 Overview of steps
+2.1.	 **Overview of steps**
 
 1)	If submitting lab doesn’t exist in database, then need to create ‘lab’ and associated ‘grant’ for lab prior to creating the annotation
 2)	Create ‘annotation’ entry describing annotation created from experiments
@@ -126,37 +130,41 @@ If submitting lab doesn’t exist in database, then need to create ‘lab’ and
 
 If submitting user does not have access keys, please email DGA team to obtain them.  
 
-2.2.	  Adding annotation meta-data into the site
+2.2.	  **Adding annotation meta-data into the site**
 
 Visit web site and add in meta-data via web form directly.  Click ‘add’ at the top of the www.diabetesepigenome.org/annotations/ page and fill in all information on form.  Required fields are marked with ‘*’, and for some fields the set of possible values are restricted to biomedical ontology terms.
 
-2.3.	  Submit data files associated with annotation
+2.3.	  **Submit data files associated with annotation**
 
 There are two primary ways to submit data files to an experiment:
 
-2.3.1.	Running a command line script
+2.3.1.	**Running a command line script**
 
 The script ‘submit_file.py’ in GitHub allows you to post data files to an annotation.  The inputs to the script need to be manually changed to include your access keys, the file path you are submitting, lab, award, the annotation accession and replicate the file belongs to, and meta-data about the file itself including file type and other information (e.g. read length if .fastq).
 
+```
 python3 submit_file.py  
+```
 
 ** We are actively working on improving this script to help make file submission much easier without needing to manually update the script contents each time **
 
-2.3.2.	Completing spreadsheet and running macro
+2.3.2.	**Completing spreadsheet and running macro**
 
 A template Google sheet for submission is here: https://docs.google.com/spreadsheets/d/1hQ24_CDW1b-rQ9chMl5GdUiFVMn7IGWAPLWQsEp_WX8/edit?usp=sharing – which contains examples of submitted meta-data and data files.  There are two scripts ‘init.gs’ and ‘submission.gs’ that are required to post data.    
 
-IMPORTANT:  Make sure to modify the scripts in the sheet to include your own access key and secret, and if you are submitting data for another site (e,g. not to DGA) make sure to update the script to point to your own site to post data instead of diabetesepigenome.org.  In addition, you will need to provide a server URL that JSON can be posted to as a staging area prior to submission to the site.  Email Ying with any questions pertaining to editing your scripts.         
+**IMPORTANT**:  Make sure to modify the scripts in the sheet to include your own access key and secret, and if you are submitting data for another site (e,g. not to DGA) make sure to update the script to point to your own site to post data instead of diabetesepigenome.org.  In addition, you will need to provide a server URL that JSON can be posted to as a staging area prior to submission to the site.  Email Ying with any questions pertaining to editing your scripts.         
 
 The data submission spreadsheet contains a FILE form which one can fill out with file info, including the ‘alias’ for the annotation in the ‘dataset’ column.  (Note that the column ‘fastq_file’ for the file name can be any file type submitted to the site - fastq, bed, bigwig, etc.) 
 
 Once the FILE form is completed then copy the contents into a tab-delimited text file and run the script ‘gz2T2D.pl’:
 
-perl gz2T2D.pl my_submission_spreadsheet.txt  
+```
+perl gz2T2D.pl my_submission_spreadsheet.txt
+```
 
-** In order for the gz2T2D.pl script to run correctly you may need to install module JSON::Parse **
+*In order for the gz2T2D.pl script to run correctly you may need to install module JSON::Parse*
 
-2.4.	Audit and release experiment
+2.4.	**Audit and release experiment**
 
 For data being submitted to DGA, the DGA team will audit and then release files.  
 
@@ -168,11 +176,14 @@ To audit visit the experiment accession page to view meta-data, samples and data
 
 Once the experiment is audited and correct, the experiment can be released using the script ‘ENCODE_release.py’ in Github:
 
+```
 python ENCODE_release.py --keyfile keypairs.json --update --force --infile ~/Desktop/assays_to_release.txt
+```
 
 Where ‘keypairs.json’ contains your access keys and ‘assays_to_release.txt’ contains a text list of accession numbers. 
 
-More detail about data release can be found here:  https://github.com/T2DREAM/t2dream-portal/blob/master/t2dream_docs/release-data.md
+More detail about data release can be found here:  
+https://github.com/T2DREAM/t2dream-portal/blob/master/t2dream_docs/release-data.md
 
 
 
