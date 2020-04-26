@@ -35,6 +35,8 @@ Process single nuclear ATAC-seq (snATAC-seq data)
 
 Pipeline used for lung snATAC-seq data in Wang, Chiou et al bioRxiv:  `snATAC_seq`
 
+SnapATAC: https://github.com/r3fang/SnapATAC
+
 ## Single cell RNA-seq
 Process single cell/nuclear RNA-seq (sc/snRNA-seq)
 
