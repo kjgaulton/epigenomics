@@ -1,5 +1,16 @@
 # CUT N RUN pipeline
 
+Required tools that need to be installed in order to run pipeline:  
+> **BWA**:  http://bio-bwa.sourceforge.net/  
+> **samtools**:  http://www.htslib.org/  
+> **MACS**:  https://github.com/taoliu/MACS  
+  
+Primary output files from the pipeline:
+> Peak calls: output_peaks.narrowPeak  
+> Filtered, sorted alignment: output.sort.filt.rmdup.bam  
+> Read depth track: output_treat_pileup.bdg  
+> Normalized read depth track: output_ppois.sorted.bdg.gz  
+
 Usage:
 ```
 usage: cut_and_run_pipeline.py [-h] -r1 READ1 -r2 READ2 -o OUTPUT [-n NAME]
