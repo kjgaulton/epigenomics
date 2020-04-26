@@ -67,9 +67,7 @@ Process single nuclear ATAC-seq (snATAC-seq data)
 Pipeline used for human lung snATAC-seq data in Wang, Chiou et al bioRxiv:  
 ```
 snATAC_seq/lung_snATAC_pipeline.py 
-```
-  
-&nbsp;  
+``` 
 
 SnapATAC:  
 https://github.com/r3fang/SnapATAC  
