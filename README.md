@@ -18,8 +18,6 @@ Process bulk (i.e. non-single cell) ATAC-seq data:
 bulk_ATAC-seq/bulk_ATAC-seq_pipeline.py 
 ```
 
-&nbsp;  
-
 ENCODE ATAC-seq pipeline:  
 https://github.com/ENCODE-DCC/atac-seq-pipeline  
 
@@ -29,9 +27,7 @@ https://github.com/ENCODE-DCC/atac-seq-pipeline
 Process TF or histone modification ChIP-seq data:
 ```
 ChIP-seq/ChIP-seq_pipeline.py  
-```
-
-&nbsp;  
+``` 
 
 ENCODE ChIP-seq pipeline:  
 https://github.com/ENCODE-DCC/chip-seq-pipeline2  
