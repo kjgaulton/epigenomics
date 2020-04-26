@@ -15,7 +15,7 @@ MAPS_pipeline.py [-h] -f1 FASTQ1 -f2 FASTQ2 -p PEAKS -o OUTPUT
                         [--mapq MAPQ] [--length LENGTH] [--model MODEL]
                         [--optdup OPTDUP]
 
-Wrapper pipeline for analyzing PLAC-seq data using MAPS.
+Pipeline for analyzing PLAC-seq data using MAPS.
 
 optional arguments:
   -h, --help            show this help message and exit
