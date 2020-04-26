@@ -6,13 +6,17 @@ Pipelines for processing and analyzing data from epigenomic assays and integrati
 
 ## Epigenome database
 Instructions for deploying and depositing data into epigenome database DGA based on ENCODE:  
->DGA/  
+```
+DGA/ 
+```
 
 &nbsp;  
   
 ## ATAC-seq
 Process bulk (i.e. non-single cell) ATAC-seq data: 
->bulk_ATAC-seq/bulk_ATAC-seq_pipeline.py  
+```
+bulk_ATAC-seq/bulk_ATAC-seq_pipeline.py 
+```
 
 &nbsp;  
 
@@ -23,7 +27,9 @@ https://github.com/ENCODE-DCC/atac-seq-pipeline
 
 ## ChIP-seq
 Process TF or histone modification ChIP-seq data:
->ChIP-seq/ChIP-seq_pipeline.py  
+```
+ChIP-seq/ChIP-seq_pipeline.py  
+```
 
 &nbsp;  
 
@@ -41,13 +47,17 @@ https://github.com/ENCODE-DCC/rna-seq-pipeline
 
 ## CUT&RUN
 Process TF or histone modification CUT&RUN data:
->CUTNRUN/cut_and_run_pipeline.py  
+```
+CUTNRUN/cut_and_run_pipeline.py  
+```
 
 &nbsp;  
 
 ## PLAC-seq
-Process PLAC-seq/HiChiP data.  
->PLAC-seq/MAPS_pipeline.py  
+Process PLAC-seq/HiChiP data.
+```
+PLAC-seq/MAPS_pipeline.py
+```
 
 &nbsp;
 
@@ -55,7 +65,9 @@ Process PLAC-seq/HiChiP data.
 Process single nuclear ATAC-seq (snATAC-seq data)  
 
 Pipeline used for human lung snATAC-seq data in Wang, Chiou et al bioRxiv:  
->snATAC_seq/lung_snATAC_pipeline.py  
+```
+snATAC_seq/lung_snATAC_pipeline.py 
+```
   
 &nbsp;  
 
