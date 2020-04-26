@@ -21,9 +21,7 @@ ENCODE ChIP-seq pipeline:  https://github.com/ENCODE-DCC/chip-seq-pipeline2
 ENCODE RNA-seq pipeline: https://github.com/ENCODE-DCC/rna-seq-pipeline
 
 ## CUT&RUN
-Process TF or histone modification CUT&RUN data.
-
-*In progress*
+Process TF or histone modification CUT&RUN data: `CUTNRUN/`
 
 ## PLAC-seq
 Process PLAC-seq/HiChiP data.
