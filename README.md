@@ -37,8 +37,4 @@ Pipeline used for lung snATAC-seq data in Wang, Chiou et al bioRxiv:  `snATAC_se
 
 SnapATAC: https://github.com/r3fang/SnapATAC
 
-## Single cell RNA-seq
-Process single cell/nuclear RNA-seq (sc/snRNA-seq)
-
-*In progress*
 
