@@ -14,6 +14,8 @@ Instructions for deploying and depositing data into epigenome database DGA based
 Process bulk (i.e. non-single cell) ATAC-seq data: 
 >bulk_ATAC-seq/  
 
+&nbsp;  
+
 ENCODE ATAC-seq pipeline:  
 https://github.com/ENCODE-DCC/atac-seq-pipeline  
 
@@ -22,6 +24,8 @@ https://github.com/ENCODE-DCC/atac-seq-pipeline
 ## ChIP-seq
 Process TF or histone modification ChIP-seq data:
 >ChIP-seq/  
+
+&nbsp;  
 
 ENCODE ChIP-seq pipeline:  
 https://github.com/ENCODE-DCC/chip-seq-pipeline2  
