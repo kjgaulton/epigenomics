@@ -4,9 +4,12 @@ Requirements:
 > Install feather/MAPS and all listed dependencies: https://github.com/ijuric/MAPS  
 > Obtain reference genome and index with BWA  
 
-Primary output:
+Primary outputs:
 > Interactions: output.resolution.2.sig3Dinteractions.bedpe  
 
+Notes:
+- For now pipeline only works to analyze samples individually - combining data across samples in progress
+- Pipeline updated for HiChIP data from Arima Genomics kits in progress 
 
 ```
 MAPS_pipeline.py [-h] -f1 FASTQ1 -f2 FASTQ2 -p PEAKS -o OUTPUT
