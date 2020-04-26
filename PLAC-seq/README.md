@@ -40,12 +40,12 @@ Parameters:
   -t THREADS, --threads THREADS
                         Number of threads [4]
   -b BUILD, --build BUILD
-                        Genome build [hg19]
-  --binsize BINSIZE     Bin size [10000]
+                        Genome build (hg19, hg38, mm10, mm9) [hg19]
+  --binsize BINSIZE     Bin size (5000, 10000, 20000, 40000, 50000, 100000, 200000, 500000, 1000000)[10000]
   --binrange BINRANGE   Binning range [1000000]
   --mapq MAPQ           MAPQ threshold [30]
   --length LENGTH       Length cutoff [1000]
-  --model MODEL         Model [pospoisson]
+  --model MODEL         Model (pospoisson, negbinom) [pospoisson]
   --optdup OPTDUP       Optical duplicate distance [0]
 ```
 
