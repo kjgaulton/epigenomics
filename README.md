@@ -33,7 +33,7 @@ Process PLAC-seq/HiChiP data.
 ## Single nuclear ATAC-seq
 Process single nuclear ATAC-seq (snATAC-seq data)
 
-*In progress*
+Pipeline used for lung snATAC-seq data in Wang, Chiou et al bioRxiv:  `snATAC_seq`
 
 ## Single cell RNA-seq
 Process single cell/nuclear RNA-seq (sc/snRNA-seq)
