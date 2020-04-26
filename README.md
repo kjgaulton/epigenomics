@@ -1,6 +1,6 @@
 ## Analytical tools and pipelines
 
-Pipelines for processing and analyzing data from epigenomic assays and integrating with genetic association data
+Pipelines for processing and analyzing data from epigenomic assays and integrating with genetic association data  
 
 ## Epigenome database
 Instructions for deploying and depositing data into epigenome database DGA based on ENCODE:  
