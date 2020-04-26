@@ -4,7 +4,8 @@ Pipelines for processing and analyzing data from epigenomic assays and integrati
 
 ## Epigenome database
 Instructions for deploying and depositing data into epigenome database DGA based on ENCODE:  
->DGA/
+>DGA/  
+
 &nbsp;  
   
 ## ATAC-seq
