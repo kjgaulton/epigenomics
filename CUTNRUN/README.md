@@ -2,9 +2,9 @@
 
 Usage:
 ```
-cut_and_run_pipeline.py [-h] -r1 READ1 -r2 READ2 -o OUTPUT [-n NAME]
+usage: cut_and_run_pipeline.py [-h] -r1 READ1 -r2 READ2 -o OUTPUT [-n NAME]
                                [-t THREADS] [-m MEMORY] [-q QUALITY]
-                               [--reference REFERENCE] [--picard-md PICARD_MD]
+                               --reference REFERENCE --picard-md PICARD_MD
                                [-f FRAGMENT_SIZE]
                                [--macs2-genome MACS2_GENOME]
                                [--genome-size GENOME_SIZE] [--skip-trim]
@@ -35,10 +35,8 @@ Alignment arguments:
                         Mapping quality cutoff for samtools [30]
   --reference REFERENCE
                         Path to BWA-prepared reference genome
-                        [/home/joshchiou/references/male.hg19.fa]
   --picard-md PICARD_MD
                         Path to picard MarkDuplicates.jar
-                        [/home/joshchiou/bin/MarkDuplicates.jar]
 
 Alignment arguments:
   -f FRAGMENT_SIZE, --fragment-size FRAGMENT_SIZE
@@ -49,7 +47,7 @@ MACS2 arguments:
                         MACS2 genome (e.g. hs or mm) for peak calling
   --genome-size GENOME_SIZE
                         Genome size file for hg19 from UCSC
-                        [/home/joshchiou/references/hg19.chrom.sizes]
+                        [etc/hg19.chrom.sizes]
 
 Skip processing steps:
   --skip-trim           Skip adapter trimming step [ON]
