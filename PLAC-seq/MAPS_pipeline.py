@@ -112,12 +112,12 @@ def process_args():
 	
 	param_group = parser.add_argument_group('Parameters')
 	param_group.add_argument('-t', '--threads', required=False, type=str, default="4", help='Number of threads [4]')
-	param_group.add_argument('-b', '--build', required=False, type=str, default="hg19", help='Genome build [hg19]')
-	param_group.add_argument('--binsize', required=False, type=str, default="10000", help='Bin size [10000]')
+	param_group.add_argument('-b', '--build', required=False, type=str, default="hg19", help='Genome build (hg19, hg38, mm9, mm10) [hg19]')
+	param_group.add_argument('--binsize', required=False, type=str, default="10000", help='Bin size (5000, 10000, 20000, 40000, 50000, 100000, 200000, 500000, 1000000) [10000]')
 	param_group.add_argument('--binrange', required=False, type=str, default="1000000", help='Binning range [1000000]')
 	param_group.add_argument('--mapq', required=False, type=str, default="30", help='MAPQ threshold [30]')
 	param_group.add_argument('--length', required=False, type=str, default="1000", help='Length cutoff [1000]')
-	param_group.add_argument('--model', required=False, type=str, default="pospoisson", help='Model [pospoisson]')
+	param_group.add_argument('--model', required=False, type=str, default="pospoisson", help='Model (pospoisson, negbinom) [pospoisson]')
 	param_group.add_argument('--optdup', required=False, type=str, default='0', help='Optical duplicate distance [0]')
 	
 	return parser.parse_args()
