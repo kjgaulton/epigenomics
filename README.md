@@ -17,7 +17,6 @@ Process TF or histone modification ChIP-seq data: `ChIP-seq/`
 ENCODE ChIP-seq pipeline:  https://github.com/ENCODE-DCC/chip-seq-pipeline2
 
 ## RNA-seq
-Process bulk gene expression RNA-seq data: `bulk_RNA-seq/`
 
 ENCODE RNA-seq pipeline: https://github.com/ENCODE-DCC/rna-seq-pipeline
 
