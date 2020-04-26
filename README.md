@@ -41,7 +41,7 @@ https://github.com/ENCODE-DCC/rna-seq-pipeline
 
 ## CUT&RUN
 Process TF or histone modification CUT&RUN data:
->CUTNRUN/  
+>CUTNRUN/cut_and_run_pipeline.py  
 
 &nbsp;  
 
