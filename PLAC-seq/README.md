@@ -2,7 +2,7 @@
 
 Requirements:
 >Install feather/MAPS and all listed dependencies: https://github.com/ijuric/MAPS  
->Obtain reference genome and index with BWA
+>Obtain reference genome and index with BWA  
 
 ```
 MAPS_pipeline.py [-h] -f1 FASTQ1 -f2 FASTQ2 -p PEAKS -o OUTPUT
