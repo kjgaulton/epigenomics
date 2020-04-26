@@ -54,8 +54,8 @@ Process PLAC-seq/HiChiP data.
 ## Single nuclear ATAC-seq
 Process single nuclear ATAC-seq (snATAC-seq data)  
 
-Pipeline used for lung snATAC-seq data in Wang, Chiou et al bioRxiv:  
->snATAC_seq/  
+Pipeline used for human lung snATAC-seq data in Wang, Chiou et al bioRxiv:  
+>snATAC_seq/lung_snATAC_pipeline.py  
 
 SnapATAC:  
 https://github.com/r3fang/SnapATAC  
