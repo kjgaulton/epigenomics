@@ -97,7 +97,7 @@ def main(args):
 #=======================================================#
 
 def process_args():
-	parser = argparse.ArgumentParser(description='Wrapper pipeline for analyzing PLAC-seq data using MAPS.')
+	parser = argparse.ArgumentParser(description='Pipeline for analyzing PLAC-seq data using MAPS.')
 	
 	io_group = parser.add_argument_group('I/O arguments')
 	io_group.add_argument('-f1', '--fastq1', required=True, type=str, help='Input fastq read 1')
