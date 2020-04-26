@@ -1,8 +1,12 @@
 # PLAC-seq/HiChIP pipeline
 
 Requirements:
->Install feather/MAPS and all listed dependencies: https://github.com/ijuric/MAPS  
->Obtain reference genome and index with BWA  
+> Install feather/MAPS and all listed dependencies: https://github.com/ijuric/MAPS  
+> Obtain reference genome and index with BWA  
+
+Primary output:
+> Interactions: output.resolution.2.sig3Dinteractions.bedpe  
+
 
 ```
 MAPS_pipeline.py [-h] -f1 FASTQ1 -f2 FASTQ2 -p PEAKS -o OUTPUT
