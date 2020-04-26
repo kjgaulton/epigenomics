@@ -47,7 +47,7 @@ Process TF or histone modification CUT&RUN data:
 
 ## PLAC-seq
 Process PLAC-seq/HiChiP data.  
->PLAC_seq/  
+>PLAC-seq/  
 
 &nbsp;
 
